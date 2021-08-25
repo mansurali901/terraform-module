@@ -16,3 +16,9 @@ module "my_ec2_dev" {
     instance_type       =   "t2.nano"
     subnet_id           =   "${module.my_vpc_dev.subnet_id}"
 }
+
+module "route53" {
+    source              =   "../modules/route53"
+    zone_id             =   "${var.zone_id}"
+    aliases             =   "${var.aliases}"
+}
